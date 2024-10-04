@@ -1,0 +1,75 @@
+function thongbaonhanhang(product_id){
+	window.NQT.eventbus.$emit('loaddata',product_id)
+	// window.NQT.vuedata.productid = product_id;
+	// $('#thongbaonhanhang').modal("show");
+}
+
+function thongbaonhanhang1(data){
+	window.NQT.eventbus.$emit('loaddata',data)
+}
+function showpopupcontact(){
+
+	$('#hotropopup').modal("show");
+}
+
+$(function(){
+  $('.wh-widget-button-activator').click(function(){
+  
+    $('.wh-widget-send-button-wrapper-list').toggleClass('button-slide');
+    });
+})
+
+
+var toggleAffix = function(affixElement, scrollElement, wrapper) {
+  
+    var height = affixElement.outerHeight(),
+        top = wrapper.offset().top;
+    
+    if (scrollElement.scrollTop() >= top){
+        wrapper.height(height);
+        affixElement.addClass("affix");
+    }
+    else {
+        affixElement.removeClass("affix");
+        wrapper.height('auto');
+    }
+      
+  };
+
+  $('.mobileaffix').each(function() {
+  	// console.log('ssss');
+    var ele = $(this),
+        wrapper = $('<div></div>');
+    
+    ele.before(wrapper);
+    $(window).on('scroll resize', function() {
+        toggleAffix(ele, $(this), wrapper);
+    });
+    
+    // init
+    toggleAffix(ele, $(window), wrapper);
+  });
+
+
+
+  function sendemailinfo(email){
+    return false;
+    if(email){
+        var mergeVars = {};
+
+        ematics("subscribe","40297668b9", email, mergeVars, function(e){
+         if (e["error"] == 0) { 
+           // Success
+         } else { 
+           // Error
+           // console.log(e["errorMessage"])
+         }
+        });
+
+    }
+  }
+  function sendproduct(type, products){
+  return false;
+    ematics("log", "product", type, products);
+
+  }
