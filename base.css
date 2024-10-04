@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+
+}
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+body{
+    background: rgb(247,247,247);
+    overflow-x: hidden;
+}
+.grid{
+    width: 1300px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+}
+.grid-full_width{
+    width: 100%;
+    position: relative;
+    background-color: rgb(247,247,247);
+}
